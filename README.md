@@ -1,47 +1,57 @@
-﻿# 音频自定义 / BattleAudio
+# 音频自定义 / BattleAudio
 
-这是一个面向《杀戮尖塔》一代 PC 版的 ModTheSpire + BaseMod 音频规则 mod。它提供低血量、战斗、事件、能力、卡牌和其他游戏事件的音频触发条件，并允许玩家在游戏内导入自己的音频、编辑播放片段和控制规则之间的关系。
+**给你的爬塔过程加一点「逢变放曲」的节目效果。**
 
-## 公开仓库范围
+音频自定义是《杀戮尖塔》一代的音频触发 Mod。残血时播放 BGM、打出高伤害时响起一句语音、战斗胜利时来个音效——你可以导入自己的音频，在游戏内决定什么时候播放、播放哪一段，以及什么时候停止。
 
-本仓库只发布 BattleAudio 的原创源代码、测试和构建脚本。为避免把个人资料或第三方内容公开，仓库不包含：
+[Steam 创意工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3817408863) · [反馈问题](https://github.com/BIGNIANGAO/battle-audio/issues)
 
-- 个人音频、内置音乐和语音；
-- 《杀戮尖塔》、ModTheSpire、BaseMod 或其他第三方的游戏资源、截图、JAR 和 API 文件；
-- 本地配置、存档、安装目录、测试日志、旧版备份和构建产物；
-- Workshop 页面草稿和与具体发布账号相关的内容。
+## 功能
 
-首次运行时音频库为空。请在游戏内通过“添加候选音频”导入你拥有使用权的音频文件。游戏本体、ModTheSpire、BaseMod 和测试所需的外部依赖需要由用户自行安装；本仓库不重新分发它们。
+- **按游戏事件播放**：支持血量、伤害、战斗、回合、卡牌操作、资源变化、探索事件和角色特色机制等条件。
+- **自定义音频片段**：选择播放起止位置，调整每个音频的音量与原游戏背景音乐的保留比例。
+- **概率与随机播放**：为规则设置触发概率，添加多个音频候选，选择完全随机或避免连续重复。
+- **控制播放过程**：支持单次、有限循环、无限循环、停止条件及跨房间播放策略。
+- **关联规则**：设置前置规则，或在其他规则播放期间暂停当前音频，结束后从原进度恢复。
+- **游戏内编辑**：导入音频、搜索条件、试听和编辑都在游戏内完成，有效修改自动保存。
+- **多语言界面**：支持游戏提供的 24 种语言，跟随游戏语言设置。
 
-## 目录
+## 安装与使用
 
-- `src/main/java`：mod 源码。
-- `src/main/resources`：mod 元数据和 BattleAudio 自有界面文本。
-- `src/test/java`：单元测试、补丁检查和可选的游戏烟测入口。
-- `scripts/build.ps1`：使用本机游戏和 Workshop 依赖构建 JAR。
-- `scripts/game-smoke.ps1`：在隔离目录中运行真实游戏烟测的脚本。
-- `docs/BUILDING.md`：构建和测试参数。
-- `docs/ARCHITECTURE.md`：模块边界和数据流。
-- `THIRD_PARTY_NOTICES.md`：外部依赖说明。
+适用于《杀戮尖塔》一代 **PC / Windows**。
 
-## 构建
+1. 订阅 [ModTheSpire](https://steamcommunity.com/sharedfiles/filedetails/?id=1605060445)、[BaseMod](https://steamcommunity.com/sharedfiles/filedetails/?id=1605833019) 和 [音频自定义](https://steamcommunity.com/sharedfiles/filedetails/?id=3817408863)。
+2. 使用 ModTheSpire 启动游戏，启用 BaseMod 和本 Mod。
+3. 在主菜单打开 **Mods → 音频自定义 → Config**。其他语言下名称会相应变化；爬塔时也可以点击顶部扬声器图标或按 **F10**。
+4. 选择已有规则，或新建规则并点击 **添加候选音频**，然后设置触发条件和播放方式。
 
-在 Windows PowerShell 中准备 Java 8 兼容编译环境、游戏目录、Workshop 依赖目录和 JDK，然后显式传入路径：
+工坊版附带音乐与音效预设，首次使用且没有已有设置时自动载入。自行从本仓库构建的版本不附带预设音频，首次使用时需要导入自己的音频。
 
-```powershell
-./scripts/build.ps1 `
-  -GameDir 'C:\path\to\SlayTheSpire' `
-  -WorkshopDir 'C:\path\to\steamapps\workshop\content\646570' `
-  -JdkDir 'C:\path\to\jdk' `
-  -SkipTests
-```
+更改游戏语言后，请按游戏提示重启。升级时避免同时启用旧的手动安装包和工坊版。
 
-脚本只会从这些本地路径读取依赖，输出写入被 Git 忽略的 `build/` 和 `dist/`。完整参数和测试限制见 [构建说明](docs/BUILDING.md)。
+## 触发条件示例
 
-## 安装
+- **战斗与血量**：战斗开始或胜利、玩家死亡、受到伤害、血量达到阈值、击杀敌人。
+- **卡牌与资源**：打牌、抽牌、弃牌、消耗卡牌、获得能量或格挡、使用药水、获得遗物。
+- **探索与奖励**：篝火休息、锻造、开宝箱、商店购买或删牌、战斗奖励选牌。
+- **角色机制**：铁甲战士的力量与消耗、静默猎手的小刀与毒、故障机器人的充能球与集中、观者的姿态与占卜。
 
-将本地构建生成的 `dist/BattleAudio-<version>.jar` 放进游戏的 `mods` 目录，通过 ModTheSpire 启动，并启用 BaseMod 与 BattleAudio。不要同时加载多个 BattleAudio JAR。进入游戏后，从 Mods 配置入口、顶部扬声器图标或 F10 打开设置。
+具体条件和筛选项可在设置界面中查看；其他 Mod 新增的机制不保证能够识别。
+
+## 设置与备份
+
+音频和设置保存在 `%USERPROFILE%\.battleaudio`。导入后播放使用库内副本，不依赖原文件的位置。需要备份或迁移时，复制整个 `.battleaudio` 文件夹即可。
+
+## 开发与构建
+
+项目使用 Java，编译目标为 Java 8，依赖本机安装的 Slay the Spire、ModTheSpire 和 BaseMod。
+
+从源码构建需要准备本机游戏依赖；默认构建导入音频时需要可用的本地 FFmpeg。具体环境、构建参数和测试方法见[构建与测试说明](docs/BUILDING.md)，模块划分见[架构说明](docs/ARCHITECTURE.md)。
+
+## 反馈
+
+遇到问题欢迎在工坊评论区反馈，或提交 [GitHub Issue](https://github.com/BIGNIANGAO/battle-audio/issues)。请附上 Mod 版本、游戏语言、复现步骤，以及同时启用的其他 Mod，方便定位问题。
 
 ## 许可证
 
-源码采用 MIT License，见 [LICENSE](LICENSE)。这项许可只适用于本仓库中 BattleAudio 自有内容；游戏、ModTheSpire、BaseMod、FFmpeg 及用户导入的音频仍由各自权利人负责。
+BattleAudio 源码采用 [MIT License](LICENSE)。第三方依赖说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
