@@ -39,7 +39,7 @@ public final class LocalizationUiSmoke {
         String requested=System.getProperty("battleaudio.testLanguage");
         if(requested!=null && !requested.equals(Settings.language.name()))throw new AssertionError("Game did not load requested language: "+requested);
         Stage stage=(Stage)field(screen,"stage");Table root=(Table)field(screen,"root");root.validate();
-        if(!contains(root,I18n.text("音频自定义")))throw new AssertionError("Localized settings title is missing");
+        if(!contains(root,I18n.text("更好的自定义音频触发")))throw new AssertionError("Localized settings title is missing");
         if(!contains(root,I18n.text("规则列表")))throw new AssertionError("Localized rule-list title is missing");
         Skin skin=(Skin)field(screen,"skin");com.badlogic.gdx.graphics.g2d.BitmapFont font=skin.getFont("settings-font");
         atlasChecks(font);
@@ -58,7 +58,7 @@ public final class LocalizationUiSmoke {
         if(!strike.name.startsWith(com.megacrit.cardcrawl.helpers.CardLibrary.cards.get("Strike_R").name))throw new AssertionError("Vanilla list does not match the game language");
         if(!strike.matches(strike.name))throw new AssertionError("Cannot search for a localized vanilla card");
         for(com.evacipated.cardcrawl.modthespire.ModInfo info:com.evacipated.cardcrawl.modthespire.Loader.MODINFOS)
-            if("battleaudio".equals(info.ID) && !info.Name.equals(I18n.text("音频自定义")))throw new AssertionError("In-game mod list name not localized");
+            if("battleaudio".equals(info.ID) && !info.Name.equals(I18n.text("更好的自定义音频触发")))throw new AssertionError("In-game mod list name not localized");
         screen.render((com.badlogic.gdx.graphics.g2d.SpriteBatch)stage.getBatch());
         com.badlogic.gdx.graphics.Pixmap pixels=com.badlogic.gdx.utils.ScreenUtils.getFrameBufferPixmap(0,0,com.badlogic.gdx.Gdx.graphics.getWidth(),com.badlogic.gdx.Gdx.graphics.getHeight());
         try {

@@ -122,9 +122,9 @@ public final class SettingsScreen {
         Table header = new Table();
         Image icon = new Image(AudioIcon.texture()); icon.setName("audio-icon");
         header.add(icon).size(44).padRight(18);
-        Label title = label(I18n.text("音频自定义"));
-        title.setFontScale(1.35f); title.setColor(com.megacrit.cardcrawl.core.Settings.GOLD_COLOR);
-        header.add(title).expandX().left();
+        Label title = label(I18n.text("更好的自定义音频触发"));
+        title.setWrap(true); title.setFontScale(1.35f); title.setColor(com.megacrit.cardcrawl.core.Settings.GOLD_COLOR);
+        header.add(title).minWidth(0).growX().left();
         if (!embedded) header.add(button(I18n.text("关闭"), this::close)).width(150).height(48);
         root.add(header).growX().padBottom(22).row();
         status = label(""); status.setName("settings-status");

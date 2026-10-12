@@ -124,11 +124,11 @@ public final class BattleAudioMod implements PostInitializeSubscriber, PreUpdate
         };
         for (com.evacipated.cardcrawl.modthespire.ModInfo info : com.evacipated.cardcrawl.modthespire.Loader.MODINFOS) {
             if ("battleaudio".equals(info.ID)) {
-                info.Name=I18n.text("音频自定义");
+                info.Name=I18n.text("更好的自定义音频触发");
                 info.Description=I18n.text("内置战斗音频预设，并支持自定义血量、战斗与强化触发规则。");
             }
         }
-        BaseMod.registerModBadge(AudioIcon.badgeTexture(), I18n.text("音频自定义"), "Battle Audio", "", settingsPanel);
+        BaseMod.registerModBadge(AudioIcon.badgeTexture(), I18n.text("更好的自定义音频触发"), "Battle Audio", "", settingsPanel);
         BaseMod.addTopPanelItem(new TopPanelItem(AudioIcon.texture(), "battleaudio:settings") {
             @Override protected void onClick() { openSettings(); }
         });

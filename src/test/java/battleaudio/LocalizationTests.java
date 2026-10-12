@@ -34,7 +34,7 @@ public final class LocalizationTests {
             check(I18n.text("关闭","ENG").equals("Close"),"Reviewed English close label");
             check(I18n.text("关闭","unknown").equals("Close"),"Unknown language has English fallback");
             check(I18n.text("not a UI key","fra").equals("not a UI key"),"Unknown text is preserved");
-            check(I18n.text("音频自定义","zhs").equals("音频自定义"),"Approved simplified Chinese name is unchanged");
+            check(I18n.text("更好的自定义音频触发","zhs").equals("更好的自定义音频触发"),"Approved simplified Chinese name is unchanged");
             battleaudio.ui.LocalizationChoiceTests.run();
         } finally {Settings.language=saved;}
         System.out.println("PASS: "+checks+" localization, format, error and persistence checks across 24 languages");

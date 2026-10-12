@@ -1,8 +1,8 @@
-# 音频自定义 / BattleAudio
+# 更好的自定义音频触发 / Better Custom Audio Triggers
 
 **给你的爬塔过程加一点「逢变放曲」的节目效果。**
 
-音频自定义是《杀戮尖塔》一代的音频触发 Mod。残血时播放 BGM、打出高伤害时响起一句语音、战斗胜利时来个音效——你可以导入自己的音频，在游戏内决定什么时候播放、播放哪一段，以及什么时候停止。
+更好的自定义音频触发是《杀戮尖塔》一代的音频触发 Mod。残血时播放 BGM、打出高伤害时响起一句语音、战斗胜利时来个音效——你可以导入自己的音频，在游戏内决定什么时候播放、播放哪一段，以及什么时候停止。
 
 [Steam 创意工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3817408863) · [反馈问题](https://github.com/BIGNIANGAO/battle-audio/issues)
 
@@ -20,9 +20,9 @@
 
 适用于《杀戮尖塔》一代 **PC / Windows**。
 
-1. 订阅 [ModTheSpire](https://steamcommunity.com/sharedfiles/filedetails/?id=1605060445)、[BaseMod](https://steamcommunity.com/sharedfiles/filedetails/?id=1605833019) 和 [音频自定义](https://steamcommunity.com/sharedfiles/filedetails/?id=3817408863)。
+1. 订阅 [ModTheSpire](https://steamcommunity.com/sharedfiles/filedetails/?id=1605060445)、[BaseMod](https://steamcommunity.com/sharedfiles/filedetails/?id=1605833019) 和 [更好的自定义音频触发](https://steamcommunity.com/sharedfiles/filedetails/?id=3817408863)。
 2. 使用 ModTheSpire 启动游戏，启用 BaseMod 和本 Mod。
-3. 在主菜单打开 **Mods → 音频自定义 → Config**。其他语言下名称会相应变化；爬塔时也可以点击顶部扬声器图标或按 **F10**。
+3. 在主菜单打开 **Mods → 更好的自定义音频触发 → Config**。其他语言下名称会相应变化；爬塔时也可以点击顶部扬声器图标或按 **F10**。
 4. 选择已有规则，或新建规则并点击 **添加候选音频**，然后设置触发条件和播放方式。
 
 工坊版附带音乐与音效预设，首次使用且没有已有设置时自动载入。自行从本仓库构建的版本不附带预设音频，首次使用时需要导入自己的音频。
@@ -54,4 +54,4 @@
 
 ## 许可证
 
-BattleAudio 源码采用 [MIT License](LICENSE)。第三方依赖说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+更好的自定义音频触发源码采用 [MIT License](LICENSE)。第三方依赖说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
